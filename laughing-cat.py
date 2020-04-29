@@ -12,8 +12,7 @@ target_imgw, target_imgh = 1280, 720 # what we want from the camera
 #target_imgw, target_imgh = 1920, 1080 # what we want from the camera
 
 target_fps = 30
-cropw, croph = 420, 480 # this is the size of the RoI (region of interest)
-moving_window_size = 10 # frames of position averaging
+rectangle_size_averaging_window = 7 # frames of size averaging
 draw_debug_rectangles = True
 sf = 0.5 # scale factor; downsample image to speed up feature detection
 overlay_magic_sf = 1.5 # magic scale factor, determined empirically
@@ -30,46 +29,6 @@ historic_colors.append((0,0,20))
 historic_colors.append((0,0,70))
 historic_colors.append((0,0,130))
 historic_colors.append((30,30,200))
-
-# class Cat:
-#     def __init__(self, cropw, croph, imgw, imgh):
-#         global moving_window_size
-#         self.imgw = imgw
-#         self.imgh = imgh
-#         self.cropw = cropw
-#         self.croph = croph
-#         self.last_x, self.last_y = imgw/2, imgh/2
-#         self.centerx, self.centery = self.last_x, self.last_y
-#         self._moving_window_size = moving_window_size
-#         self._index = 0
-#         self._xarray = np.array([self.last_x] * self._moving_window_size)
-#         self._yarray = np.array([self.last_y] * self._moving_window_size)
-
-#     def update(self, x, y, w, h):
-#         global sf # scale factor
-#         self.last_x = (x + w/2)/sf
-#         self.last_y = (y + h/2)/sf
-
-#         self._xarray[self._index] = self.last_x
-#         self._yarray[self._index] = self.last_y
-#         self._index = self._index + 1
-#         if self._index >= self._moving_window_size:
-#             self._index = 0
-        
-#         self.centerx = np.sum(self._xarray) / self._moving_window_size
-#         self.centery = np.sum(self._yarray) / self._moving_window_size
-#         pass
-
-#     # returns a x,y,w,h crop parameter based on the moving average
-#     def getCrop(self):
-#         pad_left = int(np.clip(self.centerx - self.cropw/2, 0, self.imgw - self.cropw))
-#         pad_top  = int(np.clip(self.centery - self.croph/2, 0, self.imgh - self.croph))
-#         return (pad_left, pad_top, self.cropw, self.croph)
-
-#     # gives you the minimum distance of the cat frame from the param rectangle x,y,w,h
-#     def getDistance(self, x, y, w, h):
-#         dist = np.sqrt((self.centerx - (x+w/h)/sf)**2 + (self.centery - (y+h/2)/sf)**2)
-#         return dist
 
 class FaceTracker:
     def __init__(self):
@@ -160,11 +119,14 @@ class FaceTracker:
 
 class Face:
     def __init__(self):
+        global rectangle_size_averaging_window
         self._history_length = 4
         self.positions = [Rectangle()] * self._history_length
         self.valid = [False] * self._history_length
         self.age = 0
         self.lastIdx = self._history_length -1
+        self.diagonals = [0] * rectangle_size_averaging_window
+        self._diagonal_avg_idx = 0
         pass
 
     def create(self, rectangle):
@@ -183,11 +145,18 @@ class Face:
         NumberOfValid = 0
         for i in range(1, self._history_length):
             NumberOfValid = NumberOfValid + self.valid[i]
-        return (NumberOfValid > ((self._history_length-1)/2))
+        permissive = False
+        if self.age > self._history_length:
+            permissive = True
+        return (permissive and NumberOfValid > 1) or (NumberOfValid > ((self._history_length-1)/2))
 
     def update(self, rect):
         self.positions[self._history_length-1] = rect
         self.valid[self._history_length-1] = True
+        self.diagonals[self._diagonal_avg_idx] = rect.getDiagonal()
+        self._diagonal_avg_idx = self._diagonal_avg_idx + 1
+        if self._diagonal_avg_idx >= len(self.diagonals):
+            self._diagonal_avg_idx = 0
 
     def isRemoveable(self):
         if self.age >= self._history_length:
@@ -203,14 +172,9 @@ class Face:
         return Rectangle(), False
 
     def getAveragedSize(self):
-        size = 0
-        count = 0
-        for i in range(len(self.positions)):
-            if self.valid[i]:
-                count = count+1
-                size = size + self.positions[i].getDiagonal()
-        if count > 0:
-            size = int(size / (count * np.sqrt(2)))
+        maxidx = max(min(len(self.diagonals), self.age) - 2, 0)
+        size = np.sum(self.diagonals[0:maxidx]) / maxidx
+        size = int(size / 1.4142)
         return size, size
 
     def getWeightedAverage(self):
@@ -273,6 +237,7 @@ class Rectangle:
     def __init__(self, coords=(0,0,0,0)):
         x,y,w,h = coords
         self.x, self.y, self.w, self.h = x,y,w,h
+        self.diagonal = 0
     
     def getCenterInt(self):
         center = self.getCenter()
@@ -284,7 +249,8 @@ class Rectangle:
         return center
     
     def getDiagonal(self):
-        return np.sqrt(self.w**2 + self.h**2)
+        self.diagonal = np.sqrt(self.w**2 + self.h**2)
+        return self.diagonal
 
     def getDistance(self, other_rectangle):
         ox, oy = other_rectangle.getCenter()
