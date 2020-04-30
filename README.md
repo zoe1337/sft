@@ -2,7 +2,7 @@
 
 It's crap but I spent more than 20 hours writing it.
 
-## UwU What is this
+## OwO What is this
 It is a primitive face tracker, using OpenCV's built-in haarcascades classifier and minimum filtering.
 
 Despite its name, it does not track shitty faces. It tracks beautiful faces, but the tracker itself is kinda bad. You could surely do better. I'm sharing it because there is not enough crap on the internet, and now I have better things to do.
@@ -56,6 +56,9 @@ Yes. Ideally not more than 2 frame latency, but YMMV.
 
 ### Does it work with OBS?
 Yes it does! You want to use the `--output_bgr` option in that case.
+
+### I only want it to track and crop a face!
+No problem, barely an inconvenience! That is actually why I started this whole thing. Just run `./face-tracker-cropper.py` instead. It outputs to `/dev/video2` what you can easily open in OBS.
 
 ### Where is the Laughing Man animation from?
 Originally from Ghost in the Shell Stand Alone Complex, but this particular file is the work of [Viscupelo](https://www.deviantart.com/viscupelo/art/Laughing-Man-Updated-33465610) from 2006. I used [Glimpse](https://glimpse-editor.org) to un-optimize the gif, crop it, and create an alpha mask.
