@@ -31,7 +31,7 @@ Somehow get these things on your computer:
 ### Clone this repository
 
 ### Run
-You might need to tweak variables if it breaks. But it's just `./laughing-cat.py`
+You might need to tweak variables if it breaks. But it's just `./laughing-man.py`
 
 If you want to see a window with the processed video, use the `--gui` option.
 
@@ -39,9 +39,24 @@ If you don't want the v4l2loopback (why is it not called v4l3oopback?) use the `
 
 Using both options makes the Shitty Face Tracker do absolutely nothing. I'm not sure if that makes it less useful.
 
+To apply the Laughing Man overlay, you shoud activate it by `echo 1 > /tmp/lm-ctrl`  
+To deactivate, `echo 0 > /tmp/lm-ctrl` - I wanted to use SIGUSR1 and SIGUSR2 but that made OpenCV crash randomly...
+
+This is implemented so that you can have some fun during video calls (if you manage to open the v4l3oopback in your particular video call thingy). But you can specify the `--overlay_on` option to have it default on.
+
+Other options worth mentioning: `--debug` shows you frames around the tracked faces. Fading green (brightest: newest) are the valid tracked faces, fading red are the ones not qualifying as valid, and yellow are the recognized faces on the (future) frame. The image it is being drawn on is always one frame behind, so the tracker can see the future a little bit.
+
+If the colors are mixed up on the loopback output, try `--output_bgr`. VLC and OBS apparently want different pixel formats...
+
 ## Q&A
 ### This adds latency to the video!
 Yes. Ideally not more than 2 frame latency, but YMMV.
+
+### Does it work with OBS?
+Yes it does! You want to use the `--output_bgr` option in that case.
+
+### Where is the Laughing Man animation from?
+Originally from Ghost in the Shell Stand Alone Complex, but this particular file is the work of [Viscupelo](https://www.deviantart.com/viscupelo/art/Laughing-Man-Updated-33465610) from 2006. I used [Glimpse](https://glimpse-editor.org) to un-optimize the gif, crop it, and create an alpha mask.
 
 ### How do you detect faces?
 I don't! OpenCV does with the haarcascade classifier.
