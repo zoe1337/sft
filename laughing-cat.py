@@ -1,25 +1,195 @@
 #!/usr/bin/env python3
+
+'''
+I just hope this will deter all corporate fucks from using my crap.
+
+Shitty Face Tracker Copyright 12020 Zoé Bőle / Fully Automated (“Licensor”)
+
+Hippocratic License Version Number: 2.1.
+
+Purpose. The purpose of this License is for the Licensor named above to permit 
+the Licensee (as defined below) broad permission, if consistent with Human 
+Rights Laws and Human Rights Principles (as each is defined below), to use and 
+work with the Software (as defined below) within the full scope of Licensor’s 
+copyright and patent rights, if any, in the Software, while ensuring attribution 
+and protecting the Licensor from liability.
+
+Permission and Conditions. The Licensor grants permission by this license 
+(“License”), free of charge, to the extent of Licensor’s rights under applicable 
+copyright and patent law, to any person or entity (the “Licensee”) obtaining a 
+copy of this software and associated documentation files (the “Software”), to do 
+everything with the Software that would otherwise infringe (i) the Licensor’s 
+copyright in the Software or (ii) any patent claims to the Software that the 
+Licensor can license or becomes able to license, subject to all of the following 
+terms and conditions:
+
+    Acceptance. This License is automatically offered to every person and entity 
+subject to its terms and conditions. Licensee accepts this License and agrees to 
+its terms and conditions by taking any action with the Software that, absent 
+this License, would infringe any intellectual property right held by Licensor.
+
+    Notice. Licensee must ensure that everyone who gets a copy of any part of 
+this Software from Licensee, with or without changes, also receives the License 
+and the above copyright notice (and if included by the Licensor, patent, 
+trademark and attribution notice). Licensee must cause any modified versions of 
+the Software to carry prominent notices stating that Licensee changed the 
+Software. For clarity, although Licensee is free to create modifications of the 
+Software and distribute only the modified portion created by Licensee with 
+additional or different terms, the portion of the Software not modified must be 
+distributed pursuant to this License. If anyone notifies Licensee in writing 
+that Licensee has not complied with this Notice section, Licensee can keep this 
+License by taking all practical steps to comply within 30 days after the notice. 
+If Licensee does not do so, Licensee’s License (and all rights licensed 
+hereunder) shall end immediately.
+
+    Compliance with Human Rights Principles and Human Rights Laws.
+
+        Human Rights Principles.
+
+        (a) Licensee is advised to consult the articles of the United Nations 
+Universal Declaration of Human Rights and the United Nations Global Compact that 
+define recognized principles of international human rights (the “Human Rights 
+Principles”). Licensee shall use the Software in a manner consistent with Human 
+Rights Principles.
+
+        (b) Unless the Licensor and Licensee agree otherwise, any dispute, 
+controversy, or claim arising out of or relating to (i) Section 1(a) regarding 
+Human Rights Principles, including the breach of Section 1(a), termination of 
+this License for breach of the Human Rights Principles, or invalidity of Section 
+1(a) or (ii) a determination of whether any Law is consistent or in conflict 
+with Human Rights Principles pursuant to Section 2, below, shall be settled by 
+arbitration in accordance with the Hague Rules on Business and Human Rights 
+Arbitration (the “Rules”); provided, however, that Licensee may elect not to 
+participate in such arbitration, in which event this License (and all rights 
+licensed hereunder) shall end immediately. The number of arbitrators shall be 
+one unless the Rules require otherwise.
+
+        Unless both the Licensor and Licensee agree to the contrary: (1) All 
+documents and information concerning the arbitration shall be public and may be 
+disclosed by any party; (2) The repository referred to under Article 43 of the 
+Rules shall make available to the public in a timely manner all documents 
+concerning the arbitration which are communicated to it, including all 
+submissions of the parties, all evidence admitted into the record of the 
+proceedings, all transcripts or other recordings of hearings and all orders, 
+decisions and awards of the arbitral tribunal, subject only to the arbitral 
+tribunal’s powers to take such measures as may be necessary to safeguard the 
+integrity of the arbitral process pursuant to Articles 18, 33, 41 and 42 of the 
+Rules; and (3) Article 26(6) of the Rules shall not apply.
+
+        Human Rights Laws. The Software shall not be used by any person or 
+entity for any systems, activities, or other uses that violate any Human Rights 
+Laws. “Human Rights Laws” means any applicable laws, regulations, or rules 
+(collectively, “Laws”) that protect human, civil, labor, privacy, political, 
+environmental, security, economic, due process, or similar rights; provided, 
+however, that such Laws are consistent and not in conflict with Human Rights 
+Principles (a dispute over the consistency or a conflict between Laws and Human 
+Rights Principles shall be determined by arbitration as stated above). Where the 
+Human Rights Laws of more than one jurisdiction are applicable or in conflict 
+with respect to the use of the Software, the Human Rights Laws that are most 
+protective of the individuals or groups harmed shall apply.
+
+        Indemnity. Licensee shall hold harmless and indemnify Licensor (and any 
+other contributor) against all losses, damages, liabilities, deficiencies, 
+claims, actions, judgments, settlements, interest, awards, penalties, fines, 
+costs, or expenses of whatever kind, including Licensor’s reasonable attorneys’ 
+fees, arising out of or relating to Licensee’s use of the Software in violation 
+of Human Rights Laws or Human Rights Principles.
+
+    Failure to Comply. Any failure of Licensee to act according to the terms and 
+conditions of this License is both a breach of the License and an infringement 
+of the intellectual property rights of the Licensor (subject to exceptions under 
+Laws, e.g., fair use). In the event of a breach or infringement, the terms and 
+conditions of this License may be enforced by Licensor under the Laws of any 
+jurisdiction to which Licensee is subject. Licensee also agrees that the 
+Licensor may enforce the terms and conditions of this License against Licensee 
+through specific performance (or similar remedy under Laws) to the extent 
+permitted by Laws. For clarity, except in the event of a breach of this License, 
+infringement, or as otherwise stated in this License, Licensor may not terminate 
+this License with Licensee.
+
+    Enforceability and Interpretation. If any term or provision of this License 
+is determined to be invalid, illegal, or unenforceable by a court of competent 
+jurisdiction, then such invalidity, illegality, or unenforceability shall not 
+affect any other term or provision of this License or invalidate or render 
+unenforceable such term or provision in any other jurisdiction; provided, 
+however, subject to a court modification pursuant to the immediately following 
+sentence, if any term or provision of this License pertaining to Human Rights 
+Laws or Human Rights Principles is deemed invalid, illegal, or unenforceable 
+against Licensee by a court of competent jurisdiction, all rights in the 
+Software granted to Licensee shall be deemed null and void as between Licensor 
+and Licensee. Upon a determination that any term or provision is invalid, 
+illegal, or unenforceable, to the extent permitted by Laws, the court may modify 
+this License to affect the original purpose that the Software be used in 
+compliance with Human Rights Principles and Human Rights Laws as closely as 
+possible. The language in this License shall be interpreted as to its fair 
+meaning and not strictly for or against any party.
+
+    Disclaimer. TO THE FULL EXTENT ALLOWED BY LAW, THIS SOFTWARE COMES “AS IS,” 
+WITHOUT ANY WARRANTY, EXPRESS OR IMPLIED, AND LICENSOR AND ANY OTHER CONTRIBUTOR 
+SHALL NOT BE LIABLE TO ANYONE FOR ANY DAMAGES OR OTHER LIABILITY ARISING FROM, 
+OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THIS LICENSE, UNDER ANY KIND OF 
+LEGAL CLAIM.
+
+This Hippocratic License is an Ethical Source license 
+(https://ethicalsource.dev) and is offered for use by licensors and licensees at 
+their own risk, on an “AS IS” basis, and with no warranties express or implied, 
+to the maximum extent permitted by Laws.
+
+'''
+
 import numpy as np
 import cv2
 import imageio
 import os
+import fcntl
+import v4l2
 
 control_file = "/tmp/lm-ctrl"
 anim_file = "lm-anim.gif"
 mask_file = "lm-mask.png"
 
-target_imgw, target_imgh = 1280, 720 # what we want from the camera
-#target_imgw, target_imgh = 1920, 1080 # what we want from the camera
+'''
+You might need to tweak these below.
+'''
 
+loopbackDevName = '/dev/video2'
+
+# try to get this resolution from the camera
+target_imgw, target_imgh = 1280, 720 
+#target_imgw, target_imgh = 1920, 1080
+
+# try to get this fps from the camera
 target_fps = 30
+
+# the size of the face is averaged over a longer time period than its position
+# here you can set the size of the moving window
 rectangle_size_averaging_window = 7 # frames of size averaging
-draw_debug_rectangles = True
-sf = 0.5 # scale factor; downsample image to speed up feature detection
-overlay_magic_sf = 1.5 # magic scale factor, determined empirically
+
+# scale factor is used to downsample camera image for face detection
+# this only affects detection accuracy and speed, won't infuence the output image
+sf = 0.5
+
+# this scale factor determines the ratio between the overlay animation and the
+# detected face's diagonal. determined empirically.
+overlay_magic_sf = 1.5
+
+# this sets the default behavior for the overlay
+overlay_enabled = False # can be changed through control_file
+
+# this controls how far maximum will a rectangle still considered to belong to a known face
+# expressed as a ratio to the detected rectangle's diagonal
+rectangle_proximity_factor = 0.3 
+
+# this controls how far a new, unassigned rectangle must be from a known face, otherwise it
+# is rejected. a ratio to the face's diagonal
+rectangle_dedup_factor = 0.1
+
+# which opencv face detector to use
 use_classifier = "haarcascade" # or "lbpcascades"
-overlay_enabled = True # can be changed through control_file
-rectangle_proximity_factor = 0.5
-rectangle_dedup_factor = 0.2
+
+# show rectangles around the tracked faces
+draw_debug_rectangles = False
+# debugging rectangle colors
 historic_colors = []
 historic_colors.append((0,20,0))
 historic_colors.append((0,70,0))
@@ -294,7 +464,7 @@ def apply_overlay(bg, fg, alpha, coords):
     bg_feature_across = np.sqrt(w**2 + h**2)
     fg_scale_factor = overlay_magic_sf * (bg_feature_across / fg_across)
 
-    print("fg_scale_factor: {}".format(fg_scale_factor))
+    #print("fg_scale_factor: {}".format(fg_scale_factor))
     scaled_fg = cv2.resize(fg, None, fx=fg_scale_factor, fy=fg_scale_factor, interpolation=cv2.INTER_CUBIC)
     scaled_alpha = cv2.resize(alpha, None, fx=fg_scale_factor, fy=fg_scale_factor, interpolation=cv2.INTER_CUBIC)
 
@@ -334,14 +504,20 @@ def apply_overlay(bg, fg, alpha, coords):
     bg[y1:y2, x1:x2] = bg_crop + fg_crop
 
 if __name__ == '__main__':
+
+    if not os.path.exists(loopbackDevName):
+        print ("Error: device {} does not exist".format(loopbackDevName))
+        exit(1)
+    device = open(loopbackDevName, 'wb')
+
     print("PID: %i" % os.getpid())
 
     lmAnim = imageio.mimread(anim_file)
     lmAlpha = cv2.imread(mask_file)
     alpha = lmAlpha.astype(float) / 255.0
     totalGifFrames = len(lmAnim)
-    print("Found %i frames." % totalGifFrames)
-    print("Control File: {}\nWrite \"1\" into the file in order to activate.".format(control_file))
+    print("Found {} frames in the animation.".format(totalGifFrames))
+    print("Control File: {}\nWrite \"1\" into the file in order to activate.\n".format(control_file))
     gifFrameIdx = 0
     open(control_file, "wt").write(str(int(overlay_enabled)))
 
@@ -369,6 +545,21 @@ if __name__ == '__main__':
     ret, future = cap.read() # TODO ret is false if no image has been returned
     animFrame = cv2.cvtColor(lmAnim[0], cv2.COLOR_RGB2BGR)
     ft = FaceTracker()
+
+    o_height, o_width, channels = future.shape
+    loformat                      = v4l2.v4l2_format()
+    loformat.type                 = v4l2.V4L2_BUF_TYPE_VIDEO_OUTPUT
+    loformat.fmt.pix.field        = v4l2.V4L2_FIELD_NONE
+    loformat.fmt.pix.pixelformat  = v4l2.V4L2_PIX_FMT_BGR24
+    loformat.fmt.pix.width        = o_width
+    loformat.fmt.pix.height       = o_height
+    loformat.fmt.pix.bytesperline = o_width * channels
+    loformat.fmt.pix.sizeimage    = o_width * o_height * channels
+
+    result = fcntl.ioctl(device, v4l2.VIDIOC_S_FMT, loformat)
+    if result != 0:
+        print("Error setting format! (Error code {})".format(result))
+        exit(2)
 
     while(True):
         # Capture frame-by-frame
@@ -402,10 +593,12 @@ if __name__ == '__main__':
         ft.update(faceArray)
         ft.composite(img, animFrame, alpha)
             
-        cv2.imshow('cat', img)
+        rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        device.write(rgb)
+        #cv2.imshow('cat', img)
 
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+        # if cv2.waitKey(1) & 0xFF == ord('q'):
+        #     break
 
         gifFrameIdx = gifFrameIdx + 1
         if gifFrameIdx >= totalGifFrames:
