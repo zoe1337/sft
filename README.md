@@ -5,7 +5,7 @@ It's crap but I spent more than 20 hours writing it.
 ## UwU What is this
 It is a primitive face tracker, using OpenCV's built-in haarcascades classifier and minimum filtering.
 
-You could surely do better. I'm sharing it because there is not enough crap on the internet, and I have better things to do.
+Despite its name, it does not track shitty faces. It tracks beautiful faces, but the tracker itself is kinda bad. You could surely do better. I'm sharing it because there is not enough crap on the internet, and now I have better things to do.
 
 I tried using state-of-the-art face detection algorithms and all of them have a documentation as pleasant as a big steaming pile of shit.
 
@@ -47,6 +47,8 @@ This is implemented so that you can have some fun during video calls (if you man
 Other options worth mentioning: `--debug` shows you frames around the tracked faces. Fading green (brightest: newest) are the valid tracked faces, fading red are the ones not qualifying as valid, and yellow are the recognized faces on the (future) frame. The image it is being drawn on is always one frame behind, so the tracker can see the future a little bit.
 
 If the colors are mixed up on the loopback output, try `--output_bgr`. VLC and OBS apparently want different pixel formats...
+
+Exit by pressing Ctrl-C over the terminal or `q` over the video window (when the `--gui` option was used).
 
 ## Q&A
 ### This adds latency to the video!
