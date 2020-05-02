@@ -221,7 +221,8 @@ class FaceTracker:
         for coords in detectedFacesArray:
             rectangle = Rectangle(coords)
             rectangle.multiply(1/sf)
-            rectangle.drawFrame(canvas, yellow, 2)
+            if draw_debug_rectangles:
+                rectangle.drawFrame(canvas, yellow, 2)
             distances = []
             for face in self.data:
                 d = rectangle.getDistance(face.getWeightedAverage())
@@ -242,8 +243,9 @@ class FaceTracker:
             else:
                     rects.add(rectangle)
         
-        if updatedFaces > 0:
-            print("Updated {} already tracked faces of ({} total).".format(updatedFaces, len(self.data)))
+        if draw_debug_rectangles:
+            if updatedFaces > 0:
+                print("Updated {} already tracked faces of ({} total).".format(updatedFaces, len(self.data)))
 
         # remove duplicate entries in the detected array
         before_dedup =len(rects)
