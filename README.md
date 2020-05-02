@@ -23,7 +23,7 @@ You sure about that? Alright then.
 Somehow get these things on your computer:
  - Linux, or something that speaks V4L2 APIs reasonably well
  - Video camera with a working driver
- - Recent-ish OpenCV, python3, opencv, python-v4l2, python-imageio, v4l2loopback, python-argparse
+ - Recent-ish OpenCV, Python 3, python-v4l2, python-imageio, v4l2loopback, python-argparse
 
  I use arch btw. If you also do so, you can just  
  `yay -S v4l2loopback-dkms python-imageio python-v4l2 python-argparse opencv`
